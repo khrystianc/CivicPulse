@@ -1,0 +1,15 @@
+# React Native
+node_modules/
+.expo/
+.expo-shared/
+*.log
+
+# iOS or Android
+ios/
+android/
+
+# Environment
+.env
+
+# VS Code
+.vscode/
