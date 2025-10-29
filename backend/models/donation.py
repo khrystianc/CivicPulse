@@ -7,7 +7,9 @@ class Donation(Document):
 
     def to_json(self):
         return {
+            "id": str(self.id),
             "amount": self.amount,
             "donor": self.donor,
             "date": self.date.isoformat()
         }
+
