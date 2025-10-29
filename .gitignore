@@ -16,6 +16,7 @@ android/
 
 # Python Backend
 backend/__pycache__/
+backend/**/__pycache__/
 backend/*.pyc
 backend/*.pyo
 backend/*.pyd
@@ -36,4 +37,8 @@ backend/build/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Package lock (optional, can be committed)
+# package-lock.json
+
 
