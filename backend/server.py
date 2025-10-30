@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from routes.donations_routes import donations_bp
 from routes.voting_records_routes import voting_records_bp
 from routes.policy_changes_routes import policy_changes_bp
@@ -15,6 +17,14 @@ app = Flask(__name__)
 # Configure CORS for production
 cors_origin = os.getenv('CORS_ORIGIN', '*')
 CORS(app, resources={r"/api/*": {"origins": cors_origin}})
+
+# Configure rate limiting
+limiter = Limiter(
+    app=app,
+    key_func=get_remote_address,
+    default_limits=["200 per day", "50 per hour"],
+    storage_uri="memory://"
+)
 
 # Register blueprints
 app.register_blueprint(donations_bp, url_prefix='/api/donations')

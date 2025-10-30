@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from models.donation import Donation
 from models.voting_record import VotingRecord
 from models.policy_change import PolicyChange
-from config.db import db
+
 import os
 from flask import Flask
 

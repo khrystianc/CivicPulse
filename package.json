@@ -26,7 +26,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
-    "jest": "^29.7.0"
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^13.3.3",
+    "jest": "^29.7.0",
+    "jest-expo": "^54.0.13"
   },
   "private": true,
   "keywords": [
