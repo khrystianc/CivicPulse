@@ -1,7 +1,5 @@
-from flask_mongoengine import MongoEngine
+import mongoengine
 import os
-
-db = MongoEngine()
 
 def initialize_db(app):
     """Initialize MongoDB database connection with environment-based configuration"""
@@ -14,7 +12,7 @@ def initialize_db(app):
     mongodb_password = os.getenv('MONGODB_PASSWORD', '')
     
     # Build connection settings
-    settings = {
+    connect_kwargs = {
         'db': mongodb_db,
         'host': mongodb_host,
         'port': mongodb_port
@@ -22,10 +20,10 @@ def initialize_db(app):
     
     # Add authentication if credentials are provided
     if mongodb_username and mongodb_password:
-        settings['username'] = mongodb_username
-        settings['password'] = mongodb_password
-        settings['authentication_source'] = 'admin'
+        connect_kwargs['username'] = mongodb_username
+        connect_kwargs['password'] = mongodb_password
+        connect_kwargs['authentication_source'] = 'admin'
     
-    app.config['MONGODB_SETTINGS'] = settings
-    db.init_app(app)
+    # Connect to MongoDB using mongoengine
+    mongoengine.connect(**connect_kwargs)
 

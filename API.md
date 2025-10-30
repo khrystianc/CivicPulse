@@ -195,7 +195,14 @@ The API supports Cross-Origin Resource Sharing (CORS) for all endpoints under `/
 
 ## Rate Limiting
 
-Currently, no rate limiting is enforced. For production use, implement rate limiting to prevent abuse.
+✅ **Rate limiting is now implemented** using Flask-Limiter.
+
+**Default Limits:**
+- 200 requests per day per IP address
+- 50 requests per hour per IP address
+
+**Configuration:**
+Limits can be adjusted in `server.py` by modifying the `default_limits` parameter.
 
 ---
 

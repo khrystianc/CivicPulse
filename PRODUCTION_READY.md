@@ -119,6 +119,43 @@ CivicPulse has been transformed from a skeleton application into a fully functio
   - Node modules excluded
   - Environment files excluded
 
+### Testing Infrastructure (✓ NEW)
+
+✅ **Backend Tests** - Comprehensive pytest test suite
+  - `tests/test_api.py` - 8 API endpoint tests
+  - `tests/test_models.py` - 7 database model tests
+  - All 15 tests passing
+  - Coverage: endpoints, models, CORS, rate limiting
+
+✅ **Frontend Tests** - Jest test suite
+  - `__tests__/App.test.js` - App component tests
+  - `__tests__/screens/HomeScreen.test.js` - Screen tests
+  - `__tests__/components/Donations.test.js` - Component tests
+  - All 11 tests passing
+  - Smoke tests validating component structure
+
+✅ **Test Configuration**
+  - `backend/pytest.ini` - Pytest configuration
+  - `jest.config.js` - Jest configuration
+  - `jest.setup.js` - Jest setup file
+
+### Security Enhancements (✓ NEW)
+
+✅ **Rate Limiting** - Flask-Limiter implemented
+  - Default: 200 requests/day, 50 requests/hour per IP
+  - Protects against DoS and abuse
+  - Configurable limits in server.py
+
+✅ **Fixed Compatibility Issues**
+  - Removed flask-mongoengine dependency (Flask 3.0 incompatible)
+  - Direct mongoengine integration
+  - All API endpoints functional
+
+✅ **Environment Security**
+  - Updated .env.example with security notes
+  - MongoDB authentication support
+  - CORS configuration guidance
+
 ## Testing & Validation
 
 ### Code Quality
@@ -130,12 +167,13 @@ CivicPulse has been transformed from a skeleton application into a fully functio
 ✅ **Python packages** - Successfully installed with pip
   - Flask 3.0.3
   - flask-cors 5.0.0
-  - flask-mongoengine 1.0.0
+  - Flask-Limiter 3.8.0 (NEW)
   - pymongo 4.8.0
   - mongoengine 0.28.2
   - python-dotenv 1.0.1
   - gunicorn 23.0.0
   - requests 2.32.3
+  - pytest 8.3.4 (NEW)
 
 ✅ **npm packages** - Successfully installed with npm
   - React 18.2.0

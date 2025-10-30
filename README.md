@@ -194,26 +194,50 @@ We welcome contributions from the community! Please read [CONTRIBUTING.md](CONTR
 ## Testing
 
 ### Backend Testing
+The backend includes comprehensive test coverage with pytest.
+
 ```bash
 cd backend
-# Add tests in tests/ directory
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pytest
 ```
 
+**Test Coverage:**
+- API endpoint tests (health check, donations, voting records, policy changes)
+- Database model tests (validation, serialization)
+- CORS and rate limiting tests
+
+**Test Files:**
+- `tests/test_api.py` - API endpoint tests
+- `tests/test_models.py` - Database model tests
+
 ### Frontend Testing
+The frontend uses Jest for testing with smoke tests for components.
+
 ```bash
-# Add tests using Jest and React Native Testing Library
 npm test
 ```
 
+**Test Coverage:**
+- App component structure
+- HomeScreen component content
+- Donations component functionality
+
+**Test Files:**
+- `__tests__/App.test.js`
+- `__tests__/screens/HomeScreen.test.js`
+- `__tests__/components/Donations.test.js`
+
 ## Security
 
-- Keep dependencies up to date
-- Use environment variables for sensitive data
-- Enable MongoDB authentication in production
-- Configure CORS properly for production
-- Use HTTPS in production
-- Implement rate limiting for API endpoints
+- ✅ **Rate Limiting**: Implemented with Flask-Limiter (200/day, 50/hour per IP)
+- ✅ **CORS**: Configured and can be restricted to specific origins
+- ✅ **Environment Variables**: All sensitive data in `.env` (not committed)
+- ⚠️ **MongoDB Authentication**: Should be enabled in production
+- ⚠️ **HTTPS**: Should be configured at the server/proxy level in production
+- ⚠️ **Dependencies**: Keep updated regularly with `npm audit` and `pip list --outdated`
+
+See [SECURITY.md](SECURITY.md) for detailed security guidelines.
 
 ## License
 
