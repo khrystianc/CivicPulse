@@ -60,12 +60,11 @@ We will respond within 48 hours and work with you to address the issue.
    - Redirect HTTP to HTTPS
    - Set secure cookies
 
-5. **Implement Rate Limiting**
-   ```python
-   # Add Flask-Limiter
-   from flask_limiter import Limiter
-   limiter = Limiter(app, key_func=get_remote_address)
-   ```
+5. **Rate Limiting (✓ Implemented)**
+   - Rate limiting is now enabled by default with Flask-Limiter
+   - Default limits: 200 requests per day, 50 requests per hour per IP
+   - Configuration can be adjusted via the rate limiter settings in server.py
+   - Prevents abuse and DoS attacks
 
 6. **Regular Updates**
    - Update Python dependencies: `pip list --outdated`

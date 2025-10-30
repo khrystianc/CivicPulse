@@ -283,31 +283,54 @@ Solution: Check backend URL
 - Update API URLs in components if needed
 ```
 
-## Automated Testing (Future Enhancement)
+## Automated Testing (✓ Implemented)
 
 ### Backend Unit Tests
-```python
-# tests/test_models.py
-# tests/test_controllers.py
-# tests/test_routes.py
-```
+The backend now includes comprehensive test coverage using pytest.
+
+**Test Files:**
+- `tests/test_api.py` - Tests all API endpoints (health, donations, voting records, policy changes)
+- `tests/test_models.py` - Tests database models (Donation, VotingRecord, PolicyChange)
+- `tests/__init__.py` - Test package initialization
+
+**Test Coverage:**
+- 15 backend tests covering:
+  - API endpoint functionality
+  - CORS headers
+  - Rate limiting
+  - Database model validation
+  - JSON serialization
+  - Error handling
 
 ### Frontend Tests
-```javascript
-// __tests__/App.test.js
-// __tests__/screens/HomeScreen.test.js
-// __tests__/components/Donations.test.js
-```
+The frontend includes smoke tests using Jest.
+
+**Test Files:**
+- `__tests__/App.test.js` - App component structure tests
+- `__tests__/screens/HomeScreen.test.js` - HomeScreen content validation
+- `__tests__/components/Donations.test.js` - Donations component tests
+
+**Test Coverage:**
+- 11 frontend tests covering:
+  - Component file existence
+  - Component structure validation
+  - Content verification
+  - API integration checks
 
 ### Running Tests
 ```bash
-# Backend
+# Backend (15 tests)
 cd backend
-pytest
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pytest -v
 
-# Frontend
+# Frontend (11 tests)
 npm test
 ```
+
+**Test Results:**
+- Backend: ✅ 15 passed
+- Frontend: ✅ 11 passed
 
 ## Production Testing
 
